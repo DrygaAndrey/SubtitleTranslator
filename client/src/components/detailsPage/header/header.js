@@ -2,6 +2,8 @@ import './header.scss'
 import { useState } from 'react';
 import axios from 'axios';
 import useStore from '../../../store';
+const serverUrl = process.env.REACT_APP_API_URL;
+
 function Header() {
     const [originalLanguage, setOriginalLanguage] = useState('en');
     const [languageToBeTranslated, setLanguageToBeTranslated] = useState('uk');
@@ -24,7 +26,7 @@ function Header() {
     const buttonTranslateHandler = async () => {
         try {
             setLoading(true);
-            const response = await axios.post('http://localhost:3001/api/translate', { file, originalLanguage, languageToBeTranslated });
+            const response = await axios.post(`${serverUrl}/api/translate`, { file, originalLanguage, languageToBeTranslated });
             const translatedText = response.data;
             setFile(translatedText.translatedFiles);
             setLoading(false);
@@ -36,7 +38,7 @@ function Header() {
 
     const buttonDownloadHandler = async () => {
         try {
-            const response = await axios.post('http://localhost:3001/api/download', { file });
+            const response = await axios.post(`${serverUrl}/api/download`, { file });
             const blob = new Blob([response.data], { type: 'text/plain' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');

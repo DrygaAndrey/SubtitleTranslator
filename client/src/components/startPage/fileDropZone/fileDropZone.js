@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import useStore from '../../../store';
 import './fileDropZone.scss';
+const serverUrl = process.env.REACT_APP_API_URL;
 
 const FileDropZone = () => {
   const [isDragging, setIsDragging] = useState(false);
-  const {setFile} = useStore();
+  const { setFile } = useStore();
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -19,12 +20,12 @@ const FileDropZone = () => {
   const handleDrop = (e) => {
     e.preventDefault();
     setIsDragging(false);
-    if(e.dataTransfer.files.length>1){
+    if (e.dataTransfer.files.length > 1) {
       alert('Choose only one file');
     } else {
       const file = e.dataTransfer.files[0];
       handleFile(file);
-    }    
+    }
   };
 
   const handleFileSelect = (e) => {
@@ -33,17 +34,17 @@ const FileDropZone = () => {
   };
 
   const handleFile = (file) => {
-    if(file.name.split('.')[file.name.split('.').length-1]!=='srt'){
+    if (file.name.split('.')[file.name.split('.').length - 1] !== 'srt') {
       alert('choose only .srt files');
     } else {
       if (file) {
         const config = {
           headers: {
-            'Content-Type': 'application/octet-stream', 
+            'Content-Type': 'application/octet-stream',
           },
         };
-  
-        axios.post('http://localhost:3001/api/upload', file, config)
+
+        axios.post(`${serverUrl}/api/upload`, file, config)
           .then(response => {
             setFile(response.data);
           })
@@ -52,7 +53,7 @@ const FileDropZone = () => {
           });
       }
     }
-    
+
   };
 
   return (
