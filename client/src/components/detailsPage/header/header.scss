@@ -5,6 +5,10 @@
     width: 50%;
     align-items: center;
 
+    p {
+        margin: 0px;
+    }
+
     button {
         height: 80%;
         font-size: 15px;
@@ -39,11 +43,30 @@
 
         &:focus {
             outline: none;
-            border-color: #007bff; 
+            border-color: #007bff;
         }
 
         option {
-            font-size: 16px; 
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .header {
+        
+
+        width: 100%;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        height: 10%;
+
+        button {
+            height: 45%;
+        }
+
+        select {
+            height: 45%;
         }
     }
 }

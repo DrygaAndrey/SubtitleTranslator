@@ -40,3 +40,28 @@
         }
     }
 }
+
+@media (max-width:768px) {
+
+
+
+    .table {
+        height: 75%;
+        width: 90%;
+        
+        &-row {
+            &-start {
+                font-size: 10px;
+                width: 13%;
+            }
+            &-end {
+                font-size: 10px;
+                width: 13%;
+            }
+            &-text {
+                font-size: 10px;
+            }
+        }
+    }
+
+}

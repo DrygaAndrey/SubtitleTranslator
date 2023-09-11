@@ -57,7 +57,7 @@ function Header() {
 
     return (
         <div className="header">
-            Translate from
+            <p>Translate from</p>
             <select value={originalLanguage} onChange={handleOriginalLanguage}>
                 <option value="en">English</option>
                 <option value="uk">Ukrainian</option>
@@ -72,7 +72,7 @@ function Header() {
                 <option value="ja">Japanese</option>
                 <option value="ar">Arabic</option>
             </select>
-            to
+            <p>to</p>
             <select value={languageToBeTranslated} onChange={handleLanguageToBeTranslated}>
                 <option value="uk">Ukrainian</option>
                 <option value="en">English</option>
