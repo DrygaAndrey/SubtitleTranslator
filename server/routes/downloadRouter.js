@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/', (req, res) => {4
-    console.log('ok1');
+router.post('/', (req, res) => {
     const subtitleData = req.body.file;
-    console.log('ok2');
-    // Создаем содержимое файла .srt
     let srtContent = '';
 
     subtitleData.forEach((subtitle, index) => {
@@ -15,13 +12,11 @@ router.post('/', (req, res) => {4
         srtContent += `${translatedText}\n\n`;
     });
     console.log('ok3');
-    // Отправляем файл клиенту
     res.setHeader('Content-Disposition', 'attachment; filename=subtitles.srt');
     res.setHeader('Content-Type', 'text/plain');
     res.send(srtContent);
 });
 
-// Функция для форматирования времени в формате .srt (00:00:00,000)
 function formatTime(milliseconds) {
     const date = new Date(milliseconds);
     const hours = date.getUTCHours().toString().padStart(2, '0');

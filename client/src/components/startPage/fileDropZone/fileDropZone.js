@@ -39,7 +39,7 @@ const FileDropZone = () => {
       if (file) {
         const config = {
           headers: {
-            'Content-Type': 'application/octet-stream', // Тип содержимого: бинарный файл
+            'Content-Type': 'application/octet-stream', 
           },
         };
   

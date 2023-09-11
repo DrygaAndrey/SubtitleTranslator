@@ -14,10 +14,8 @@ router.post('', (req, res) => {
     const result = jschardet.detect(subtitleFile);
     const detectedEncoding = result.encoding;
 
-    // Преобразование в UTF-8 с помощью iconv-lite
     const subtitleTextUtf8 = iconv.decode(subtitleFile, detectedEncoding);
 
-    // Далее обработка
     const subtitleText = subtitleTextUtf8.toString('utf-8');
     const parsedSubtitles = parseSync(subtitleText);
 
