@@ -1,0 +1,51 @@
+.header {
+    height: 8%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    align-items: center;
+
+    button {
+        height: 80%;
+        font-size: 15px;
+        background-color: #e7e7e7;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    select {
+        text-align: center;
+        height: 80%;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        appearance: none;
+        background-color: #fff;
+        cursor: pointer;
+
+        // Стили для фокусировки (когда элемент активен)
+        &:focus {
+            outline: none; // Убирает стандартное синее обводку
+            border-color: #007bff; // Граничная линия синего цвета при фокусировке
+        }
+
+        // Стили для опций в выпадающем списке
+        option {
+            font-size: 16px; // Размер шрифта для опций
+        }
+    }
+}

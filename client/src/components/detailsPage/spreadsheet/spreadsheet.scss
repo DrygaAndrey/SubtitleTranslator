@@ -1,0 +1,42 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 70%;
+    overflow: auto;
+
+    &-row:first-child {
+        border-top: none;
+    }
+
+    &-row:nth-child(2n) {
+        background-color: rgb(231 231 231);
+    }
+
+    &-row {
+        padding: 5px;
+        border-top: 1px solid #00000014;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        &-start {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            border-right: 1px solid #00000069;
+        }
+
+        &-end {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+        }
+
+        &-text {
+            border-left: 1px solid #00000069;
+            width: 35%;
+            text-align: center;
+        }
+    }
+}
